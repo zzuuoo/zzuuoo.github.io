@@ -117,7 +117,7 @@ function timeElapse(date, mode) {
 	}
 	hours = current.getHours() - date.getHours();
 	if (hours < 0) {
-		hours += 60;
+		hours += 24;
 		current.setDate(current.getDate() - 1);
 	}
 	if (mode == 1) {
@@ -136,22 +136,33 @@ function timeElapse(date, mode) {
 		days = Math.floor((current.getTime() - date.getTime()) / (1000 * 3600 * 24));
 	}
 
-	if (hours < 10) {
-		hours = "0" + hours;
-	}
-	if (minutes < 10) {
-
-		minutes = "0" + minutes;
-	}
-	if (seconds < 10) {
-		seconds = "0" + seconds;
-	}
 	var result = (years > 0 ? "<span class=\"digit\">" + years + "</span> 年 ":"")
-	result += (months >= 0 ? "<span class=\"digit\">" + months + "</span> 月 ":"");
-	result += "<span class=\"digit\">" + days + "</span> 日 ";
-	result += "<span class=\"digit\">" + hours + "</span> 时 "
-	result += "<span class=\"digit\">" + minutes + "</span> 分 "
-	result += "<span class=\"digit\">" + seconds + "</span> 秒";
+	if (months <10){
+		result += (months >= 0 ? "<span class=\"digit\">" +"0"+ months + "</span> 月 ":"");
+	}else{
+		result += "<span class=\"digit\">" + months + "</span> 月 ";
+	}
+	if(days<10){
+		result += "<span class=\"digit\">" +"0"+ days + "</span> 日 ";
+	}else{
+		result += "<span class=\"digit\">" + days + "</span> 日 ";
+	}
+	if(hours<10){
+		result += "<span class=\"digit\">" +"0"+ hours + "</span> 时 "
+	}else{
+		result += "<span class=\"digit\">" + hours + "</span> 时 "
+	}
+	if (minutes<10){
+		result += "<span class=\"digit\">" + "0" + minutes + "</span> 分 "
+	}else{
+		result += "<span class=\"digit\">" + minutes + "</span> 分 "
+	}
+	if(seconds<10){
+		result += "<span class=\"digit\">" + "0" + seconds + "</span> 秒";
+	}else{
+		result += "<span class=\"digit\">" + seconds + "</span> 秒";
+	}
+	
 	
 	$("#elapseClock").html(result);
 }
