@@ -1,186 +1,109 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/templatemo-style.css">
-    <title>Home</title>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="garden_dev.js"></script>
+    <script type="text/javascript" src="functions_dev.js"></script>
 </head>
 
 <body>
-    <div class="fixed-header">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-                <a class="navbar-brand" href="#">Puzzle</a>
-            </div>
-            <nav class="main-menu">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#clients">Clients</a></li>
-                    <li><a class="external" href="" target="_blank">External</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-    
-    <div class="container">
-        <section class="col-md-12 content" id="home">
-           <div class="col-lg-6 col-md-6 content-item">
-               <img src="images/1.jpg" alt="Image" class="tm-image">
-           </div>
-           <div class="col-lg-6 col-md-6 content-item content-item-1 background">
-               <h2 class="main-title text-center dark-blue-text">Puzzle Bootstrap Template</h2>
-               <p>Puzzle is a Bootstrap (v3.3.6) responsive template provided by <span class="light-blue-text">templatemo</span>. You can download, edit and use this layout for absolutely free of charge.</p>
-               <p>No backlink is required to use this template. Credit goes to <span class="light-blue-text">Unsplash</span> for images used in this layout.</p>               
-               <button type="button" class="btn btn-big dark-blue-bordered-btn">Big Button</button>
-               <button type="button" class="btn btn-big dark-blue-btn">Download</button>
-           </div>
-       </section>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* 	我们相识于互联网时代,</span><br />
+				<span class="space"/><span class="comments">* 所以我通过互联网来记年我们的岁月.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"Vx"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"Cary"</span>);<br />
+				<span class="comments">// Nov 24, 2017, I told you I love you. </span><br />
+				i.love(u);<br />
+				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
+				u.accepted();<br />
+				<span class="comments">// Since then, I miss u every day.</span><br />
+				i.miss(u);<br />
+				<span class="comments">// And take care of u and our love.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// You say that you won't be so easy to marry me.</span><br />
+				<span class="comments">// So I keep waiting and I have confidence that you will.</span><br />
+				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isHesitate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
+				<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
+				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
+				}<br />
+				<span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
+				i.marry(u);<br />
+				i.liveHappilyWith(u);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Cary, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u forever and ever.<br/>
+						<div class="signature">- hackerzhou</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			相识于 © 2017.11.24 <a href='https://zzuuoo.github.io/'>https://zzuuoo.github.io/</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2017, 10, 27);
+		together.setHours(21);
+		together.setMinutes(10);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
 
-       <section class="col-md-12 content padding" id="services">
-        <div class="col-lg-6 col-md-6 col-md-push-6 content-item">
-           <img src="images/2.jpg" alt="Image" class="tm-image">
-       </div>
-       <div class="col-lg-6 col-md-6 col-md-pull-6 content-item background flexbox">
-           <h2 class="section-title">Quility Services</h2>
-           <p class="section-text">Morbi auctor tristique mattis. Vestibulum vitae sapien a ligula mollis ullamcorper ac a nisi. Ut a dignissim est, sodales pellentesque purus. Pellentesque porttitor ante at nulla ornare, eget sagittis sapien pulvinar. In semper mi ut enim mollis, ut auctor lectus posuere.</p>
-           <ul class="dark-blue-text">
-               <li>+ Cras id dui eu tortor eleifend gravida</li>
-               <li>+ Maecenas tempus nisi in arcu</li>
-               <li>+ Nulla eget sem sit amet turpis tempus</li>
-               <li>+ Crasvel eros id ipsum accumsan</li>
-           </ul>
-           <p>Nulla odio nunc, rhoncus quis porttitor quis, convallis sed tortor. Quisque dui mews, euismod vel sapien at, maximus feugiat tellus. </p>
-           <p>Curabitur vel rutrum augue, id tristique diam. Sed imperdiet quis ipsum a vulputate. Suspendisse sit amet nibh mi. </p>
-       </div>
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
 
-   </section>
-
-   <section class="col-md-12 content" id="clients">
-       <div class="col-lg-6 col-md-6 content-item">
-           <img src="images/3.jpg" alt="Image" class="tm-image">
-       </div>
-       <div class="col-lg-6 col-md-6 content-item background flexbox">
-           <h2 class="section-title">Our Clients</h2>
-           <p>Maecenas tempus nisi in arcu facilisis venenatis. Fusce ac turpis sem. Nulla eget sem sit amet turpis tempus viverra at et odio. Crasvel eros id ipsum accumsan venenatis ut nec ipsum. </p>
-           <p>Nulla odio nunc, rhoncus quis porttitor quis, convallis sed tortor. Quisque dui metus, euismod vel sapien at, maximus feugiat tellus. </p>
-           <p>Curabitur vel rutrum augue, id tristique diam. Sed imperdiet quis ipsum a vulputate. Suspendisse sit amet nibh mi. In quis sapien a metus interdum hendrerit. </p>
-           <p>Ut a dignissim est, sodales pellentesque purus. Pellentesque porttitor ante at nulla ornare, eget sagittis sapien pulvinar.</p>
-           <div>
-               <button type="button" class="btn dark-blue-bordered-btn normal-btn">Small Button</button>
-               <button type="button" class="btn yellow-btn normal-btn">Download</button>
-               <button type="button" class="btn green-btn normal-btn">Demo</button>    
-           </div>             
-       </div>
-   </section>
-
-
-   <section class="col-md-12 content" id="contact">
-       <div class="col-lg-6 col-md-6 col-md-push-6 content-item">
-           <img src="images/4.jpg" alt="Image" class="tm-image">
-       </div>
-       <div class="col-lg-6 col-md-6 col-md-pull-6 content-item background flexbox">
-           <h2 class="section-title">Contact Us</h2>
-           <p class="margin-b-25">Nulla eget sem sit amet turpis tempus viverra at et odio. Cras vel eros id ipsum accumsan venenatis ut nec ipsum.</p>
-
-           <!--<div class="row"> -->
-           <form method="post" name="contact-form" class="contact-form">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="form-group">
-                    <input name="name" type="text" class="form-control" id="name" placeholder="Your Name..." required>
-                </div>    
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pad-l-3">
-                <div class="form-group contact-field">
-                    <input name="email" type="email" class="form-control" id="email" placeholder="Your Email..." required>
-                </div>    
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-group contact-field">
-                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Your Subject..." required>
-                </div>    
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-group contact-field">
-                    <textarea name="message" rows="5" class="form-control" id="message" placeholder="Write your message..." required></textarea>
-                </div>    
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-group margin-b-0">
-                    <button type="submit" id="form-submit" class="btn no-bg btn-contact">Submit</button>
-                </div>    
-            </div>
-        </form>
-        <!--</div> -->
-        <div id="msgSubmit" class="h3 text-center hidden">Message Submitted!</div>
-
-    </div>
-
-</section>
-
-<footer class="col-md-12 content" id="externals">
- <div class="col-lg-6 col-md-6 last">
-   <img src="images/5.png" alt="Image" class="tm-image">
-</div>
-<div class="col-lg-6 col-md-6 background last about-text-container">
-   <h2 class="section-title">About This Website</h2>
-   <p class="about-text">Puzzle Template is brought to you by templatemo. Sed imperdiet quis ipsum a vulputate. Suspendisse sit amet nibh mi. In quis sapien a metus interdum hendrerit.</p>       
-</div>
-</footer>
-
-</div>
-
-<div class="text-center footer">
-	<div class="container">Copyright &copy; 2019 Vx&Cary.<a target="_blank" href="https://zzuuoo.github.io/">https://zzuuoo.github.io/</a></div>
-</div>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.singlePageNav.min.js"></script>
-
-<script>
-
-// Check scroll position and add/remove background to navbar
-function checkScrollPosition() {
-    if($(window).scrollTop() > 50) {
-      $(".fixed-header").addClass("scroll");
-  } else {        
-      $(".fixed-header").removeClass("scroll");
-  }
-}
-
-$(document).ready(function () {   
-    // Single page nav
-    $('.fixed-header').singlePageNav({
-        offset: 59,
-        filter: ':not(.external)',
-        updateHash: true        
-    });
-
-    checkScrollPosition();
-
-    // nav bar
-    $('.navbar-toggle').click(function(){
-        $('.main-menu').toggleClass('show');
-    });
-
-    $('.main-menu a').click(function(){
-        $('.main-menu').removeClass('show');
-    });
-});
-
-$(window).on("scroll", function() {
-    checkScrollPosition();    
-});
-</script>
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
 </body>
 </html>
