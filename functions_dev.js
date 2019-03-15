@@ -146,12 +146,12 @@ function timeElapse(date, mode) {
 	if (seconds < 10) {
 		seconds = "0" + seconds;
 	}
-	var result = (years > 0 ? "<span class=\"digit\">" + years + "</span> year ":"")
-	result += (months >= 0 ? "<span class=\"digit\">" + months + "</span> month ":"");
-	result += "<span class=\"digit\">" + days + "</span> day ";
-	result += "<span class=\"digit\">" + hours + "</span> hr "
-	result += "<span class=\"digit\">" + minutes + "</span> min "
-	result += "<span class=\"digit\">" + seconds + "</span> sec";
+	var result = (years > 0 ? "<span class=\"digit\">" + years + "</span> 年 ":"")
+	result += (months >= 0 ? "<span class=\"digit\">" + months + "</span> 月 ":"");
+	result += "<span class=\"digit\">" + days + "</span> 日 ";
+	result += "<span class=\"digit\">" + hours + "</span> 时 "
+	result += "<span class=\"digit\">" + minutes + "</span> 分 "
+	result += "<span class=\"digit\">" + seconds + "</span> 秒";
 	
 	$("#elapseClock").html(result);
 }
