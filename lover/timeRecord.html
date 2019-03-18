@@ -1,0 +1,98 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>zuoVx和他的葫芦娃儿</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="../css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/garden_dev.js"></script>
+    <script type="text/javascript" src="../js/functions_dev.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments" style="font-size:15px">/**</span><br />
+				<span class="space"/><span class="comments" style="font-size:15px">*我们相识于互联网时代,</span><br />
+				<span class="space"/><span class="comments" style="font-size:15px">*所以我通过互联网来记念我们的岁月.</span><br />
+				<span class="space"/><span class="comments" style="font-size:15px">*/</span><br />
+				<span class="space"/><span class="space"/><span class="comments" style="font-size:18px">2017年的11月24日, 我们不期而遇。</span><br />
+				<span class="comments" style="font-size:18px">并且从那时起，我们非常幸运地在一起了。</span><br />
+				<span class="comments" style="font-size:18px">自从遇见了你，我心里多了一些些归属感，跟你在一起的日子挺幸福的，是那种真实的踏实的幸福感。</span><br />
+				<span class="space"/><span class="space"/><span class="comments" style="font-size:18px">至少，遇到你了以后，我内心的流浪似乎到了尽头。</span><br />
+				<span class="comments" style="font-size:18px">你问我我喜欢你的什么，我现在可以告诉你，我喜欢跟你在一起的感觉，那种我也不知道哪来的归属感。</span><br />
+				<span class="comments" style="font-size:18px">我还喜欢你的朴实，尽管是有些懒，可是这也是人之常情，起码我看到的是你的真真切切的一面。</span><br />
+				<span class="comments" style="font-size:18px">脑海还会时不时浮现起我们的点点滴滴，过去的画面一帧一帧的出现，仿佛在提醒我要好好珍惜彼此。</span><br />
+				<span class="space"/><span class="space"/><span class="comments" style="font-size:18px">最后，愿我们的感情，像大海一样永远不会干枯！</span><br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						我们已经相识了
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						并会一直保持下去。<br/>
+						<div class="signature">--zuoVx</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="copyright">
+			<a href='../index.html' style="font-size:24px"> Home</a>
+		</div>
+		<div id="copyright">
+			网站创建于 @ 2019.03.15 <a href='https://zzuuoo.github.io/'> https://zzuuoo.github.io/</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var displayMode = 1;
+		var together = new Date();
+		together.setFullYear(2017, 11, 24);
+		together.setHours(21);
+		together.setMinutes(10);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		$("#loveHeart").click(function(){
+			displayMode *= -1;
+			timeElapse(together, displayMode);
+		});
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "你的浏览器不支持 HTML5!<br/>推荐使用 Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				adjustWordsPosition();
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together, displayMode);
+			setInterval(function () {
+				timeElapse(together, displayMode);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
