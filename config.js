@@ -9,8 +9,8 @@ window.config = {
       label: '博客',
       link: '/blog'
     }, {
-      label: 'react',
-      link: '/blog/tag/react'
+      label: '简历',
+      link: '/'
     }
   ],
   github: {

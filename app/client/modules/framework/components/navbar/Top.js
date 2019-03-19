@@ -8,9 +8,9 @@ export default props => (
     <div className={style.logo}>
       {props.siteName}
     </div>
-    <div className={style.action}>
+    {/* <div className={style.action}>
       <span><Link to="/blog/search"><i className="fa fa-search"></i></Link></span>
       <span><Link to="/blog/star"><i className="fa fa-star"></i></Link></span>
-    </div>
+    </div> */}
   </div>
 )
