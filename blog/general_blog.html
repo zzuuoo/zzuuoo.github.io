@@ -1,0 +1,60 @@
+<html>
+<head>
+        <link rel="shortcut icon" href="../images/head.png" /> 
+        <title></title>
+        <script src="../js/jquery.min.js"></script>  
+    <script src="../js/showdown.min.js"></script>
+    <script>    
+    function getQueryVariable(variable)
+    {
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+    }
+    $(function(){    
+        $.ajax({    
+            //请求方式    
+            type:"GET",    
+            //文件位置    
+            url:getQueryVariable("url"),  
+            //返回数据格式为json,也可以是其他格式如    
+            dataType: "json",    
+            //请求成功后要执行的函数，拼接html    
+            success: function(data){    
+                var converter = new showdown.Converter(); //初始化转换器
+                // var htmlcontent  = converter.makeHtml(content); //将MarkDown转为html格式的内容
+                $("title").append(data.title)
+                var str="";    
+                    str+="<h1>"+data.title+"</h1>";  
+                    str+=converter.makeHtml(data.body);
+  
+                $("#blogg").append(str);    
+            }    
+        });    
+    });    
+    </script> 
+</head>
+<body >
+
+     <p data-source-line="2" style="text-align:center;">
+         <a href="../index.html">
+            <strong>Home</strong>
+        </a>
+    </p>
+    <div id="blogg">
+
+    </div> 
+ 
+    
+
+
+
+</body>
+
+
+</div>
+</html>
